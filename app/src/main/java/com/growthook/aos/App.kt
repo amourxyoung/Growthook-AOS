@@ -9,6 +9,7 @@ import timber.log.Timber
 
 @HiltAndroidApp
 class App : Application() {
+    // test2
     override fun onCreate() {
         super.onCreate()
         KakaoSdk.init(this, "$NATIVE_APP_KEY")
