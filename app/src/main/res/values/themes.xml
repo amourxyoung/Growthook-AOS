@@ -11,14 +11,6 @@
 
     <style name="Theme.GrowthookAOS" parent="Base.Theme.GrowthookAOS" />
 
-    <style name="InsightPlusFloatingActionButtonStyle" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
-        <item name="shapeAppearanceOverlay">@style/Radius50</item>
-    </style>
-
-    <style name="Radius50" parent="ShapeAppearance.MaterialComponents.SmallComponent">
-        <item name="cornerSize">50dp</item>
-    </style>
-
     <style name="Radius5">
         <item name="cornerSize">5dp</item>
     </style>
@@ -50,5 +42,14 @@
     </style>
 
 
+
+
+    <style name="InsightPlusFloatingActionButtonStyle" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
+        <item name="shapeAppearanceOverlay">@style/Radius50</item>
+    </style>
+
+    <style name="Radius50" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerSize">50dp</item>
+    </style>
 
 </resources>
