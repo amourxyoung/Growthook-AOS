@@ -17,7 +17,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.insight.actionplan.ActionplanInsightActivity"
+            android:name=".presentation.insight.actionplan.AddActionplanActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.insight.noactionplan.SeedModifyActivity"
@@ -25,8 +25,12 @@
         <activity
             android:name=".presentation.insight.noactionplan.NoActionplanInsightActivity"
             android:exported="false" />
+
         <activity
-            android:name=".presentation.insight.actionplan.AddActionplanActivity"
+            android:name=".presentation.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.onboarding.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,12 +38,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".presentation.MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.onboarding.LoginActivity"
-            android:exported="false" />
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
