@@ -24,10 +24,12 @@
             android:exported="false" />
         <activity
             android:name=".presentation.insight.noactionplan.NoActionplanInsightActivity"
-            android:exported="false" />
-
+            android:exported="false"/>
         <activity
             android:name=".presentation.MainActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".presentation.cavedetail.CaveDetailActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.onboarding.LoginActivity"
