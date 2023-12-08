@@ -7,12 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.growthook.aos.databinding.ItemActionplanEdittextBinding
 import com.growthook.aos.util.extension.CommonTextWatcher
 
-class AddActionplanAdapter(
+class ActionplanEdittextAdapter(
     private val list: MutableList<String>,
     private val onAddItem: () -> Unit,
     private val onEditTextChanged: (position: Int, text: String) -> Unit,
 ) :
-    RecyclerView.Adapter<AddActionplanAdapter.ActionplanEdittextViewHolder>() {
+    RecyclerView.Adapter<ActionplanEdittextAdapter.ActionplanEdittextViewHolder>() {
 
     inner class ActionplanEdittextViewHolder(
         private val binding: ItemActionplanEdittextBinding,
@@ -58,9 +58,5 @@ class AddActionplanAdapter(
         list.add(0, item)
         onAddItem.invoke()
         notifyItemInserted(0)
-    }
-
-    companion object {
-        const val TAG = "adapter"
     }
 }

@@ -5,9 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class AddActionplanViewModel : ViewModel() {
-    private val _actionplanList = MutableLiveData<MutableList<String>>()
+    private val _actionplanList = MutableLiveData(mutableListOf(""))
     val actionplanList: LiveData<MutableList<String>> = _actionplanList
-
     val isButtonEnabled = MutableLiveData<Boolean>(false)
 
     fun addItem(item: String) {
