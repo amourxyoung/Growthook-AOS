@@ -6,10 +6,11 @@ import android.view.View
 import androidx.activity.viewModels
 import com.growthook.aos.databinding.ActivityAddActionplanBinding
 import com.growthook.aos.util.base.BaseActivity
+import timber.log.Timber
 
 class AddActionplanActivity :
     BaseActivity<ActivityAddActionplanBinding>({ ActivityAddActionplanBinding.inflate(it) }) {
-    private var _editTextAdapter: AddActionplanAdapter? = null
+    private var _editTextAdapter: ActionplanEdittextAdapter? = null
     private val viewModel by viewModels<AddActionplanViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,17 +24,21 @@ class AddActionplanActivity :
 
     private fun foldInsightContent() {
         binding.clAddActionplanCollapse.setOnClickListener {
-            binding.clAddActionplanCollapse.visibility = View.GONE
-            binding.clAddActionplanExpanded.visibility = View.VISIBLE
+            with(binding) {
+                clAddActionplanCollapse.visibility = View.GONE
+                clAddActionplanExpanded.visibility = View.VISIBLE
+            }
         }
         binding.clAddActionplanExpanded.setOnClickListener {
-            binding.clAddActionplanExpanded.visibility = View.GONE
-            binding.clAddActionplanCollapse.visibility = View.VISIBLE
+            with(binding) {
+                clAddActionplanExpanded.visibility = View.GONE
+                clAddActionplanCollapse.visibility = View.VISIBLE
+            }
         }
     }
 
     private fun initEditTextAdapter() {
-        _editTextAdapter = AddActionplanAdapter(
+        _editTextAdapter = ActionplanEdittextAdapter(
             list = viewModel.actionplanList.value ?: mutableListOf(""),
             onAddItem = { viewModel.addItem("") },
             onEditTextChanged = { position, text -> viewModel.updateItem(position, text) },
@@ -48,16 +53,18 @@ class AddActionplanActivity :
     }
 
     private fun observeActionplanList() {
-        viewModel.actionplanList.observe(this) {
-            if (it.isNotEmpty()) {
-                viewModel.isButtonEnabled.value = true
-            }
+        viewModel.actionplanList.observe(this) { actionplans ->
+            Timber.e("actionplanList size:: ${actionplans.size}")
+            Timber.e("actionplanList content:: $actionplans")
+            val isActionplanEmpty = actionplans.any { it.isBlank() }
+
+            viewModel.isButtonEnabled.value = !isActionplanEmpty
         }
     }
 
     private fun observeButtonEnabled() {
         viewModel.isButtonEnabled.observe(this) { isEnabled ->
-            if (isEnabled == true) {
+            if (isEnabled) {
                 binding.tvAddActionplanComplete.setTextColor(Color.parseColor("#23B877"))
             } else {
                 binding.tvAddActionplanComplete.setTextColor(Color.parseColor("#6B6E82"))
