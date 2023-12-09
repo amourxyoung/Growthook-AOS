@@ -21,10 +21,10 @@
             android:exported="false" />
         <activity
             android:name=".presentation.insight.noactionplan.NoActionplanInsightActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".presentation.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".presentation.cavedetail.CaveDetailActivity"
             android:exported="false" />
@@ -37,8 +37,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.cavedetail.cavemodify.CaveDetailModifyActivity"
-            android:exported="false"/>
+        <activity
+            android:name=".presentation.insight.actionplan.AddActionplanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.cavedetail.cavemodify.CaveDetailModifyActivity"
+            android:exported="false" />
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
